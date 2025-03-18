@@ -37,7 +37,7 @@ python2 tools/create_feats.py --infeats bottom_up_tsv --outfolder ./mscoco/featu
 
 3. Download [coco-caption](https://github.com/ruotianluo/coco-caption) and setup the path of __C.INFERENCE.COCO_PATH in lib/config.py
 
-4. The pretrained models and results can be downloaded [here](https://drive.google.com/open?id=1a7aINHtpQbIw5JbAc4yvC7I1V-tQSdzb).
+4. The pretrained models and results can be downloaded [here](For Cross: https://drive.google.com/file/d/1oWkS8ixOl5zvGqoYCC0bKgAfz9kYV7Xn/view?usp=drive_link For RL: https://drive.google.com/file/d/1Md7QOSYSt_b4630vv7KFNH8csMOEgdlw/view?usp=drive_link).
 
 5. The pretrained SENet-154 model can be downloaded [here](https://drive.google.com/file/d/1CrWJcdKLPmFYVdVNcQLviwKGtAREjarR/view?usp=sharing).
 
