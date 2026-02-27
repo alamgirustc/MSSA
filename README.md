@@ -95,10 +95,57 @@ In the released configuration, multimodal features are stored with shapes like:
 > - The pipeline parses COCO metadata (W, H, filenames), extracts ROIs from bounding boxes, computes each feature type per ROI, normalizes features for scale/resolution invariance, then saves `.npz` files for fast loading.
 > - If your ROI count differs (e.g., 10–100), adapt your extraction and padding/truncation strategy to match your model config.
 
-### 5) (Optional) Pretrained models
-Place pretrained checkpoints under your experiment snapshot directory, e.g.:
-- `experiments/mssa/snapshot/` (Cross-Entropy training)
-- `experiments/mssa_rl/snapshot/` (CIDEr / RL fine-tuning)
+---
+
+## Pretrained checkpoints and generated captions (download)
+
+We provide ready-to-use checkpoints and their corresponding **generated caption results**:
+
+### Cross-Entropy (XE) training
+- **Checkpoint (epoch 62):** `caption_model_62.pth`  
+  Google Drive: https://drive.google.com/file/d/1oWkS8ixOl5zvGqoYCC0bKgAfz9kYV7Xn/view?usp=sharing
+- **Generated captions / test results (epoch 62):** `result_test_62.json`  
+  Google Drive: https://drive.google.com/file/d/1LtIBLoFbIkTwPlvs4IWAyFU2UIK3ZQGQ/view?usp=sharing
+
+### RL fine-tuning (CIDEr optimization / SCST)
+- **Checkpoint (epoch 25):** `caption_model_25.pth`  
+  Google Drive: https://drive.google.com/file/d/1Md7QOSYSt_b4630vv7KFNH8csMOEgdlw/view?usp=sharing
+- **Generated captions / test results (epoch 25):** `result_test_25.json`  
+  Google Drive: https://drive.google.com/file/d/1YQb35_O6rqefBxwSGAO9_m7ji0NPw6Qh/view?usp=sharing
+
+### Download via command line (recommended)
+Install `gdown`:
+
+```bash
+pip install -U gdown
+```
+
+Download all files into `pretrained/`:
+
+```bash
+mkdir -p pretrained
+
+# XE (epoch 62)
+gdown --fuzzy "https://drive.google.com/file/d/1oWkS8ixOl5zvGqoYCC0bKgAfz9kYV7Xn/view?usp=sharing" -O pretrained/caption_model_62.pth
+gdown --fuzzy "https://drive.google.com/file/d/1LtIBLoFbIkTwPlvs4IWAyFU2UIK3ZQGQ/view?usp=sharing" -O pretrained/result_test_62.json
+
+# RL (epoch 25)
+gdown --fuzzy "https://drive.google.com/file/d/1Md7QOSYSt_b4630vv7KFNH8csMOEgdlw/view?usp=sharing" -O pretrained/caption_model_25.pth
+gdown --fuzzy "https://drive.google.com/file/d/1YQb35_O6rqefBxwSGAO9_m7ji0NPw6Qh/view?usp=sharing" -O pretrained/result_test_25.json
+```
+
+### Where to put the checkpoints
+Use the same folder structure as the training scripts:
+
+- XE checkpoint → `experiments/mssa/snapshot/`
+- RL checkpoint → `experiments/mssa_rl/snapshot/`
+
+Example:
+
+```bash
+cp pretrained/caption_model_62.pth experiments/mssa/snapshot/
+cp pretrained/caption_model_25.pth experiments/mssa_rl/snapshot/
+```
 
 ---
 
